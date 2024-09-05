@@ -52,5 +52,14 @@ $array[] = 8;
 $array[4] = 123123;
 var_dump($array);
 
+function hello($name=''){
+    echo "hello $name\n";
+}
+hello('Kristjan');
+hello('Kata');
+hello();
+
+
+
 
 ?>
