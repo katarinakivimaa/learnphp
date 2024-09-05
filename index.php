@@ -1,63 +1,30 @@
 <?php
 
-$a = 1;
-$a++;
-$a--;
-$a+=2;
-$a-=2;
-$a*=2;
-$a/=2;
-$a%=2;
+class Box {
+    public $height;
+    public $width;
+    public $length;
 
-$a = 'hello ' . 'world';
-$a .='asdsds';
-$array = array(1,2,3);
-$array = [1,2,3];
-
-var_dump($array[1]);
-
-$array = [
-    'essa'=> 1,
-    'tessa' => 2,
-    'kossa' => 3,
-    5 => 4,
-    'dfwefde',
-    10 => 1.2,
-    true
-];
-
-var_dump($array['kossa']);
-
-var_dump($array);
-foreach($array as $key => $value) {
-    //echo $key . '=>' . $value . "\n";
-    echo "$key=>$value\n";
+    public function volume(){
+        return $this->height * $this->width * $this->length;
+    }
 }
 
-$name = 'Kata';
+$box1 = new Box();
+$box1->height = 1;
+$box1->width = 2;
+$box1->length = 3;
 
-$string = "hello $name\n";
-var_dump($string);
+var_dump($box1);
 
-$char = 'a';
+$box2 = new Box();
+$box2->height = 4;
+$box2->width = 5;
+$box2->length = 6;
 
-for($i=0;$i<78;$i++){
-    var_dump($char);
-    $char++;
-}
+var_dump($box1->volume());
+var_dump($box2->volume());
 
-$array = [1,2,3,4];
-array_push($array,5,6,7);
-$array[] = 8;
-$array[4] = 123123;
-var_dump($array);
-
-function hello($name=''){
-    echo "hello $name\n";
-}
-hello('Kristjan');
-hello('Kata');
-hello();
 
 
 
