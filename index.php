@@ -9,7 +9,6 @@ $a*=2;
 $a/=2;
 $a%=2;
 
-
 $a = 'hello ' . 'world';
 $a .='asdsds';
 $array = array(1,2,3);
@@ -39,6 +38,13 @@ $name = 'Kata';
 
 $string = "hello $name\n";
 var_dump($string);
+
+$char = 'a';
+
+for($i=0;$i<78;$i++){
+    var_dump($char);
+    $char++;
+}
 
 
 
