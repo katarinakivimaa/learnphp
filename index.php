@@ -17,21 +17,24 @@ class MetalBox extends Box {
     }
 }
 
-// $num1 = 1;
-// $num2 = $num1;
-// $num2 = 2;
-// var_dump($num1, $num2);
+$num1 = 1;
+$num2 = $num1;
+$num2 = 2;
+var_dump($num1, $num2);
 
+$metal1 = new MetalBox();
+$metal1->height = 1;
+// $metal1->width = 2;
+// $metal1->length = 3;
+// $metal2 = $metal1;
+$metal2 = clone $metal1;
+$metal2->height = 2;
+var_dump($metal1->height, $metal2->height);
+// var_dump($metal1, $metal2);
 
-$metal = new MetalBox();
-$metal->height = 1;
-$metal->width = 2;
-$metal->length = 3;
-
-
-var_dump($metal);
-var_dump($metal->volume());
-var_dump($metal->weight());
+// var_dump($metal);
+// var_dump($metal->volume());
+// var_dump($metal->weight());
 
 // $box1 = new Box();
 // $box1->height = 1;
