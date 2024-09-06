@@ -1,43 +1,42 @@
 <?php
 
-class ConsoleLogger implements Logger {
-    public function log($message){
-        echo "$message\n";
-    }
-}
+class Box {
+    public $height; //absoluutselt kõik. alusta rangeimast reeglit ja siis liigu leebema poole vajadusel
+    protected $width; //klass ise ja lapsklassid saavad muuta
+    private $length; //ainult sama klass kus defineeriti
 
-class Task {
-    public function work(Logger $logger) {
-        for($i=0;$i<10;$i++) {
-            $logger->log($i);
+    public function volume(){
+        return $this->height * $this->width * $this->length;
+    }
+    public function getLength(){
+        return $this->length;
+    }
+    public function setLength(){
+        if(is_numeric($length) && $length > 0) {
+            $this->length = $length;
+        } else {
+            $this->length = 0;
         }
     }
 }
 
-interface Logger {
-    public function log($message);
-}
-
-//--------------------------------------------
-
-
-class NothingLogger implements Logger {
-    public function log($message){
-
+class MetalBox extends Box {
+    public $weightPerUnit = 10;
+    public function weight(){
+        return $this->volume() * $this->weightPerUnit;
+    }
+    public function testProtected(){
+        var_dump($this->length);
     }
 }
 
+$box = new MetalBox();
+// $box = new Box();
+$box->setLength(121);
+$box->testProtected(141);
+// $box->height=10;
+// $box->width=10;
+// $box->length=10;
+var_dump($box);
 
-class FileLogger implements Logger{
-    public function log($message){
-        $file = fopen('log.txt','a');
-        fwrite($file, "$message\n");
-        fclose($file);
-    }
-}
-
-$logger = new ConsoleLogger();
-// $logger = new FileLogger();
-$task = new Task();
-$task->work($logger);
-// $task->work('dfdsdqas');
+?>
