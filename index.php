@@ -1,30 +1,43 @@
 <?php
 
-class Box {
-    public $height;
-    public $width;
-    public $length;
-
-    public function volume(){
-        return $this->height * $this->width * $this->length;
+class ConsoleLogger implements Logger {
+    public function log($message){
+        echo "$message\n";
     }
 }
 
-class MetalBox extends Box {
-    use HasMaterial;
-    public $weightPerUnit = 10;
-    public function weight(){
-        return $this->volume() * $this->weightPerUnit;
+class Task {
+    public function work(Logger $logger) {
+        for($i=0;$i<10;$i++) {
+            $logger->log($i);
+        }
     }
 }
 
-trait HasMaterial {
-    public $material;
-    public function getMaterial() {
-        return $this->material;
+interface Logger {
+    public function log($message);
+}
+
+//--------------------------------------------
+
+
+class NothingLogger implements Logger {
+    public function log($message){
+
     }
 }
 
 
+class FileLogger implements Logger{
+    public function log($message){
+        $file = fopen('log.txt','a');
+        fwrite($file, "$message\n");
+        fclose($file);
+    }
+}
 
-?>
+$logger = new ConsoleLogger();
+// $logger = new FileLogger();
+$task = new Task();
+$task->work($logger);
+// $task->work('dfdsdqas');
