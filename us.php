@@ -1,9 +1,9 @@
 <?php
 $posts = [
-    ['title'=> 'Some titties 1', 'body' => 'Some boy 1'],
-    ['title'=> 'Some titties 2', 'body' => 'Some boy 2'],
-    ['title'=> 'Some titties 3', 'body' => 'Some boy 3'],
-    ['title'=> 'Some titties 4', 'body' => 'Some boy 4'],
+  ['title'=> 'Some UStitties 2', 'body' => 'Some boy 2'],
+  ['title'=> 'Some UStitties 3', 'body' => 'Some boy 3'],
+  ['title'=> 'Some UStitties 4', 'body' => 'Some boy 4'],
+  ['title'=> 'Some UStitties 1', 'body' => 'Some boy 1'],
 ];
 ?>
 
