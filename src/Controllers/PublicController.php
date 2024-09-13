@@ -32,6 +32,26 @@ class PublicController {
         ];
         include 'views/tech.php';
     }
+
+    public function form() {
+        dump($_GET, $_POST); //query
+
+        // if(isset($_GET['flname'])){
+        //     $flname = $_GET['flname'];
+        // } else {
+        //     $flname = null;
+        // }
+
+        // $flname = isset($_GET['flname']) ? $_GET['flname'] : null;
+
+        $flname = $_GET['flname'] ?? null; 
+        // ?? on lühike väga spetsiifiline if lause
+        include 'views/form.php';
+    }
+
+    public function answer(){
+        echo $_POST['flname'];
+    }
 }
 
-//klasside puhul suured tähed
+//klasside puhul suured tähed, fail sama nimega kui klass
