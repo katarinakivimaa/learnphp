@@ -13,7 +13,7 @@
     <?php include 'partials/sidebar.php'; ?>
     </div>
   </div>
-
+ 
 </main>
 
 <?php include 'partials/footer.php'; ?>
