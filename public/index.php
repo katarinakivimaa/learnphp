@@ -13,7 +13,6 @@ function dump(...$vars){
 spl_autoload_register(function($class){
     $class = substr($class, 4);
     //esimesed 4 tähte peab kaotama selle pärast et App\ on 4 tähemärki, muidu otsib App folderit
-    dump($class);
     require_once "src/$class.php";
 });
 
