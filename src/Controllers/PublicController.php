@@ -34,7 +34,7 @@ class PublicController {
     }
 
     public function form() {
-        dump($_GET, $_POST); //query
+        // dump($_GET, $_POST); //query
 
         // if(isset($_GET['flname'])){
         //     $flname = $_GET['flname'];
