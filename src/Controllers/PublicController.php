@@ -2,23 +2,25 @@
 
 namespace App\Controllers;
 
-use PDO;
-use PDOException;
+use App\DB;
+use App\Models\Post;
+use App\Models\User;
 
 class PublicController
 {
 
     public function index()
     {
-        try {
-            $conn = new PDO('sqlite:db.sqlite');
-            // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
-        } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
-        }
+        
+        $posts = Post::all();
+        dump($posts);
+        
+        $users = User::all();
+        dump($users);
 
+        $users = Post::find(2);
+        dump($posts);
+        
 
         // $posts = [
         //     ['title'=> 'Some titties 1', 'body' => 'Some boy 1'],
