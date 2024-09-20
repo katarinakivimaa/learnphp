@@ -39,4 +39,25 @@ class DB {
         return $stmt->fetch();
    
    }
+   public function insert($table, $fields) {
+        $fieldNames = array_keys($fields);
+        $fieldNamesText = implode(', ', $fieldNames);
+        $fieldValuesText = implode("', '", $fields);
+
+        $sql = "INSERT INTO $table ($fieldNamesText)
+        VALUES ('$fieldValuesText')";
+        // use exec() because no results are returned
+        // dd($sql);
+        $this->conn->exec($sql);
+   }
+   
+   public function delete($table, $id){
+    $sql = "DELETE FROM $table WHERE id=$id";
+
+        // use exec() because no results are returned
+        $this->conn->exec($sql);
+   }
+    
+ 
+
 }
