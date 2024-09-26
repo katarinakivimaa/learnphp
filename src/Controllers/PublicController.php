@@ -11,10 +11,15 @@ class PublicController
 
     public function index()
     {
-        setcookie('mycookie','crunchy', time() + 30 * 24 * 60 * 60 ); //30 päeva sekundites
-        dd($_COOKIE);
-        // $posts = Post::all();
-        // view('index', compact('posts'));
+        // session_start();
+        // $_SESSION['userId']=2; //sessionit ei saa kasutaja muuta, temp kaustas sessioniid on näha serveri poolel
+        // dump($_SESSION);
+
+        // setcookie('mycookie','crunchy', time() + 30 * 24 * 60 * 60 ); //30 päeva sekundites
+        // dd($_COOKIE); // cookie väärtust saab kasutaja muuta
+
+        $posts = Post::all();
+        view('index', compact('posts'));
 
         // view('index', ['posts=>$post']);
         // include __DIR__ . '/../../views/index.php';
