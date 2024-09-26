@@ -7,11 +7,12 @@ if (preg_match('/\.(?:png|jpg|jpeg|gif|svg|js|css)$/', $_SERVER["REQUEST_URI"]))
 spl_autoload_register(function($class){
     $class = substr($class, 4);
     //esimesed 4 tähte peab kaotama selle pärast et App\ on 4 tähemärki, muidu otsib App folderit
-    require_once "src/$class.php";
+    require_once __DIR__ . "/../src/$class.php";
 });
 
-require 'helpers.php';
-require 'routes.php';
+require __DIR__ . '/../helpers.php';
+// dd( __DIR__ . '/../helpers.php');
+require __DIR__ . '/../routes.php';
 
 
 $router = new App\Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);

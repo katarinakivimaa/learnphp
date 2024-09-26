@@ -14,20 +14,23 @@ class PublicController
         
         $posts = Post::all();
 
-        
-        include 'views/index.php';
+        view('index', compact('posts'));
+        // view('index', ['posts=>$post']);
+        // include __DIR__ . '/../../views/index.php';
     }
 
     public function us()
     {
         $posts = Post::all();
-        include 'views/us.php';
+        view('us', compact('posts'));
+        // include 'views/us.php';
     }
 
     public function tech()
     {
         $posts = Post::all();
-        include 'views/tech.php';
+        view('tech', compact('posts'));
+        // include 'views/tech.php';
     }
 
     public function form()
@@ -44,7 +47,8 @@ class PublicController
 
         $flname = $_GET['flname'] ?? null;
         // ?? on lühike väga spetsiifiline if lause
-        include 'views/form.php';
+        view('form', compact('flname'));
+        // include 'views/form.php';
     }
 
     public function answer()

@@ -1,4 +1,4 @@
-<?php include 'views/partials/header.php'; ?>
+<?php include __DIR__ . '/../partials/header.php'; ?>
 
 <main class="container">
   <a href="/admin/posts/create" class="btn btn-primary">New Post</a>
@@ -27,4 +27,4 @@
 
 </main>
 
-<?php include 'views/partials/footer.php'; ?>
+<?php include __DIR__ . '/../partials/footer.php'; ?>

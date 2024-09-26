@@ -1,4 +1,4 @@
-<?php include 'views/partials/header.php'; ?>
+<?php include __DIR__ . '/../partials/header.php'; ?>
 
 <main class="container">
   <form method="POST" action="/admin/posts">
@@ -21,4 +21,4 @@
 
 </main>
 
-<?php include 'views/partials/footer.php'; ?>
+<?php include __DIR__ . '/../partials/footer.php'; ?>
