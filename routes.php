@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\AuthController;
 use App\Controllers\PostsController;
 use App\Route;
 use App\Controllers\PublicController;
@@ -17,4 +18,9 @@ Route::get('/admin/posts/delete', [PostsController::class,'destroy']);
 Route::get('/admin/posts/edit', [PostsController::class,'edit']);
 Route::post('/admin/posts/edit', [PostsController::class,'update']);
 
+Route::get('/register', [AuthController::class, 'registerForm']);
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::get('/admin/posts/show', [PostsController::class,'show']);
+// Route::get('/admin/posts/show', [PostsController::class,'back']);
 //insert new route(s?) for show, view
