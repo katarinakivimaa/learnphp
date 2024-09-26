@@ -28,6 +28,20 @@ class PostsController
         redirect('/admin/posts');
     }
 
+    public function edit(){
+        $post = Post::find($_GET['id']);
+        view('posts/edit', compact('post'));
+    }
+
+    public function update(){
+        // dd($_POST);
+        $post = Post::find($_GET['id']);
+        $post->title = $_POST['title'];
+        $post->body = $_POST['body'];
+        $post->save();
+        redirect('/admin/posts');
+    }
+
     public function destroy(){
         $post = Post::find($_GET['id']);
         if($post){
@@ -35,6 +49,10 @@ class PostsController
         }
         redirect('/admin/posts');
         // header('Location: /admin/posts');
+    }
+
+    public function show(){ //SINCE WHEN DO WE HAVE HOMEWORK
+        redirect('/admin/posts');
     }
   
 

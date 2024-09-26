@@ -58,6 +58,20 @@ class DB {
         $this->conn->exec($sql);
    }
     
- 
+   public function update($table, $fields, $id){
+        
+        $updateFieldsText='';
+        foreach($fields as $key=>$value){
+            $updateFieldsText .= "$key='$value', ";
+        }
+        $updateFieldsText = substr($updateFieldsText, 0, -2); //value lõpust võetakse koma tühik ära
+        $sql = "UPDATE $table SET $updateFieldsText WHERE id=$id";
+
+        // Prepare statement
+        $stmt = $this->conn->prepare($sql);
+    
+        // execute the query
+        $stmt->execute();
+   }
 
 }
