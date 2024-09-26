@@ -11,10 +11,11 @@ class PublicController
 
     public function index()
     {
-        
-        $posts = Post::all();
+        setcookie('mycookie','crunchy', time() + 30 * 24 * 60 * 60 ); //30 päeva sekundites
+        dd($_COOKIE);
+        // $posts = Post::all();
+        // view('index', compact('posts'));
 
-        view('index', compact('posts'));
         // view('index', ['posts=>$post']);
         // include __DIR__ . '/../../views/index.php';
     }
