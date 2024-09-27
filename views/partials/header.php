@@ -202,8 +202,19 @@
                             <path d="M21 21l-5.2-5.2" />
                         </svg>
                     </a>
-                    <a class="btn btn-sm btn-outline-secondary" href="/register">Sign up</a>
-                    <a class="btn btn-sm btn-outline-primary ms-2" href="/login">Login</a>
+                    <?php if (auth()) ?>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?=auth()->email?> <php></php>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                    </div>
+                    
+                        <!-- <a class="btn btn-sm btn-outline-secondary" href="/register">Sign up</a>
+                        <a class="btn btn-sm btn-outline-primary ms-2" href="/login">Login</a>
+                    < ?php endif; ?>  fix this portion   -->
                 </div>
             </div>
         </header>

@@ -4,11 +4,13 @@ if (preg_match('/\.(?:png|jpg|jpeg|gif|svg|js|css)$/', $_SERVER["REQUEST_URI"]))
     return false;    // serve the requested resource as-is. püst kriips on alt gr ja greather than lesster than klahv
 }
 
-spl_autoload_register(function($class){
-    $class = substr($class, 4);
-    //esimesed 4 tähte peab kaotama selle pärast et App\ on 4 tähemärki, muidu otsib App folderit
-    require_once __DIR__ . "/../src/$class.php";
-});
+require __DIR__ . '/../vendor/autoload.php';
+
+// spl_autoload_register(function($class){
+//     $class = substr($class, 4);
+//     //esimesed 4 tähte peab kaotama selle pärast et App\ on 4 tähemärki, muidu otsib App folderit
+//     require_once __DIR__ . "/../src/$class.php";
+// });
 
 session_start();
 
@@ -31,6 +33,12 @@ if($match){
     
 } else {
     echo '404';
+}
+
+unset($_SESSION['error']);
+if(isset($_SESSION['newerror'])){
+    $_SESSION['error'] = $_SESSION['newerror'];
+    unset($_SESSION['error']);
 }
 
 ?>

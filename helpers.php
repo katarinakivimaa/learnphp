@@ -1,16 +1,17 @@
 <?php
-function dump(...$vars){
-    echo '<pre>';
-    var_dump(...$vars);
-    echo '</pre>';
-}
 
-function dd(...$vars){
+use App\Models\User;
 
-    dump(...$vars);
-    die;
+// function dump(...$vars){
+//     echo '<pre>';
+//     var_dump(...$vars);
+//     echo '</pre>';
+// }
 
-}
+// function dd(...$vars){
+//     dump(...$vars);
+//     die;
+// }
 
 
 function view($viewName, $vars=[]){
@@ -22,4 +23,13 @@ function redirect($path){
     header("Location: $path");
 }
 
-// dd(__DIR__);
+function auth(){
+    if(isset($_SESSION['userId'])){
+        $user = User::find($_SESSION['userId']);
+        if ($user){
+            return $user;
+        }
+    }
+    return false;
+}
+

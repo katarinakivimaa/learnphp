@@ -1,12 +1,12 @@
 <?php include __DIR__ . '/../partials/header.php'; ?>
 
 <main class="container">
-  <?php if(isset($_SESSION['error'])): ?>
+<?php if(isset($_SESSION['error'])): ?>
     <div class="alert alert-danger" role="alert">
-      <?=$_SESSION['error']?>
+    <?=$_SESSION['error']?>
     </div>
   <?php endif; ?>
-  <form method="POST" action="/register">
+  <form method="POST" action="/login">
     <!-- method default on GET -->
     <!-- kui actionit pole pandud siis ta tuleb samale leheküljele tagasi -->
     <div class="mb-3">
@@ -20,12 +20,7 @@
     </div>
 
     <div class="mb-3">
-      <label for="password_confirm" class="form-label">Password Confirm</label>
-      <input name="password_confirm" type="password" class="form-control" id="password_confirm">
-    </div>
-
-    <div class="mb-3">
-      <input type="submit" class="btn btn-primary" value="Register now for the MILFs!">
+      <input type="submit" class="btn btn-primary" value="Login!">
     </div>
   </form>
 
