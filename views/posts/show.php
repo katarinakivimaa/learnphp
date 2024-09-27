@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/../partials/header.php'; ?>
 
-<style>
+<!-- <style>
 table, th, td {
   border:2px solid grey;
   background-color: lightgrey;
@@ -8,18 +8,19 @@ table, th, td {
 
 
 
-</style>
+</style> -->
 
 <main class="container">
-    <table align="center" method="GET" action="/admin/posts/show?id=<?=$post->id?>" style="width: 80%;">
+    <table class="table table-hover table-striped">
       <tr>
-        <td><label for="title">Title / Heading</label></td>
-        <td><label for="body">Content</label></td>
+        <th>Title / Heading</th>
+        <td><?=$post->title?></td> 
+
       </tr>
       <tr>
-        <td readonly name="title" type="text" id="title"><?=$post->title?></td> 
+      <th>Content</th>
       <!-- tühikuid ei tohi panna < ?=$post->title? >e need muidu liituvad teksti algusesse--></td>
-        <td readonly name="body" id="body"><?=$post->body?></td>
+        <td><?=$post->body?></td>
       </tr>
     </table>
     <!-- method default on GET -->
