@@ -12,7 +12,7 @@
 
     <div class="mb-3">
       <label for="body" class="form-label">Content</label>
-      <textarea name="body" class="form-control" id="body" rows="3"><?=$post->title?></textarea>
+      <textarea name="body" class="form-control" id="body" rows="3"><?=$post->body?></textarea>
     </div>
 
     <div class="mb-3">
